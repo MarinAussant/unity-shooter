@@ -164,8 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monRigidBody: {fileID: 6863447708074395207}
   speed: 12
-  power: 3
-  monCreateur: {fileID: 0}
+  power: 1
   limitUP: {fileID: 2625191058965777086, guid: 397463cff31f466449e011c5ebd0f670, type: 3}
 --- !u!96 &5144115588052714144
 TrailRenderer:

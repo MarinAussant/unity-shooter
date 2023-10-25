@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public Rigidbody2D monRigidBody;
     public float speed;
-    public int power;
+    public float power;
 
     public Transform limitUP;
 
@@ -26,7 +26,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Ennemi")
         {
             collision.gameObject.GetComponent<Ennemi>().life -= power;

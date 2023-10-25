@@ -10,7 +10,7 @@ public class Ennemi : MonoBehaviour
     public GameObject bullet;
 
     public float timeBetweenShot;
-    public int life;
+    public float life;
 
     private float timeStamp = -1;
 
@@ -23,6 +23,9 @@ public class Ennemi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timeStamp += Time.deltaTime;
+
         if(life <= 0) 
         {
             transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
@@ -35,9 +38,10 @@ public class Ennemi : MonoBehaviour
             FindObjectOfType<MovementEtTir>().scoreText.text = "Score :" + FindObjectOfType<MovementEtTir>().score;
         }
 
-        if(timeStamp <= Time.time)
+        if(timeStamp >= timeBetweenShot)
         {
-            timeStamp = Time.time + timeBetweenShot;
+            timeStamp = 0;
+            timeBetweenShot = Random.Range(1.0f, 10.0f);
             Instantiate(bullet, transform.position, transform.rotation);
         }
         

@@ -21,13 +21,12 @@ public class BulletEnnemi : MonoBehaviour
 
         if (transform.position.y < limitDOWN.position.y)
         {
-        //    Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<MovementEtTir>().life -= power;
