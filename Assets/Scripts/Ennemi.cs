@@ -8,6 +8,7 @@ public class Ennemi : MonoBehaviour
 
     public GameObject money;
     public GameObject bullet;
+    public GameObject explosionParticles;
 
     public float timeBetweenShot;
     public float life;
@@ -17,7 +18,7 @@ public class Ennemi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeBetweenShot = Random.Range(1, 10);
+        timeBetweenShot = Random.Range(1, 5);
     }
 
     // Update is called once per frame
@@ -28,7 +29,8 @@ public class Ennemi : MonoBehaviour
 
         if(life <= 0) 
         {
-            transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
+            Instantiate(explosionParticles, transform.position, Quaternion.Euler(0, 0, 0));
+            //transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
             Destroy(gameObject);
             for (int i = 0; i <= Random.Range(1, 3); i++)
             {

@@ -9,7 +9,6 @@ public class groupEnnemi : MonoBehaviour
 
     public int nombreEnnemi;
     public float speed;
-    public GameObject groupSuivant;
     public Rigidbody2D monRb;
     public float distance;
 
@@ -29,7 +28,7 @@ public class groupEnnemi : MonoBehaviour
     {
         if(nombreEnnemi <= 0)
         {
-            Instantiate(groupSuivant,new Vector3(groupSuivant.transform.position.x, groupSuivant.transform.position.y, 0), Quaternion.Euler(0,0,0));
+            //Instantiate(unRandomEnnemi dans un enum d'ennemi);
             Destroy(gameObject);
         }
 
