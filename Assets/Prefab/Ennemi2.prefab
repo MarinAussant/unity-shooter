@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6608421322448370616}
   m_Layer: 0
   m_Name: Ennemi2
-  m_TagString: Untagged
+  m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +168,4 @@ MonoBehaviour:
   explosionParticles: {fileID: 2519717795258285019, guid: a7e6b1fc3788cd647ab5afd870d0d064, type: 3}
   timeBetweenShot: 0
   life: 7
+  enemyType: 1

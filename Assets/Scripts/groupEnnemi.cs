@@ -19,8 +19,8 @@ public class groupEnnemi : MonoBehaviour
     {
         nombreEnnemi = transform.childCount;
         monRb = GetComponent<Rigidbody2D>();
-        monRb.velocity = Vector3.right * speed;
-        initPosition = new Vector2(transform.position.x, transform.position.y);
+        monRb.velocity = Vector3.down/2 ;
+
     }
 
     // Update is called once per frame
@@ -28,18 +28,9 @@ public class groupEnnemi : MonoBehaviour
     {
         if(nombreEnnemi <= 0)
         {
-            //Instantiate(unRandomEnnemi dans un enum d'ennemi);
             Destroy(gameObject);
         }
 
-        if(transform.position.x > distance + initPosition.x)
-        {
-            monRb.velocity = Vector3.left * speed;
-        }
-        if (transform.position.x < -distance + initPosition.x) 
-        {
-            monRb.velocity = Vector3.right * speed;
-        }
           
     }
 }

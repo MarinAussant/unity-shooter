@@ -152,3 +152,4 @@ MonoBehaviour:
   explosionParticles: {fileID: 2519717795258285019, guid: a7e6b1fc3788cd647ab5afd870d0d064, type: 3}
   timeBetweenShot: 0
   life: 15
+  enemyType: 2

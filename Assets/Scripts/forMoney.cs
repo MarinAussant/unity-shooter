@@ -10,7 +10,7 @@ public class forMoney : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myRb.AddForce(new Vector2(Random.Range(-100,100), Random.Range(20, 70)));
+        myRb.AddForce(new Vector2(Random.Range(-20,20), Random.Range(20, 70)));
     }
 
     // Update is called once per frame

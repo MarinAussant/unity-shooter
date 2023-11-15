@@ -12,13 +12,35 @@ public class Ennemi : MonoBehaviour
 
     public float timeBetweenShot;
     public float life;
+    public enum EnemyType
+    {
+        Hexagone1,
+        Ovale2,
+        Losange3
+    }
+    public EnemyType enemyType;
 
     private float timeStamp = -1;
+    private int nbMoneyDrop;
 
     // Start is called before the first frame update
     void Start()
     {
-        timeBetweenShot = Random.Range(1, 5);
+        switch (enemyType)
+        {
+            case EnemyType.Hexagone1:
+                timeBetweenShot = Random.Range(5.0f, 10.0f);
+                break;
+
+            case EnemyType.Ovale2 :
+                timeBetweenShot = Random.Range(3.0f, 5.0f);
+                break;
+
+            case EnemyType.Losange3 :
+                timeBetweenShot = Random.Range(1.0f, 3.0f);
+                break;
+        }
+
     }
 
     // Update is called once per frame
@@ -29,22 +51,58 @@ public class Ennemi : MonoBehaviour
 
         if(life <= 0) 
         {
+
             Instantiate(explosionParticles, transform.position, Quaternion.Euler(0, 0, 0));
-            //transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
-            Destroy(gameObject);
-            for (int i = 0; i <= Random.Range(1, 3); i++)
+            transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
+
+            switch (enemyType)
+            {
+                case EnemyType.Hexagone1:
+                    nbMoneyDrop = Random.Range(1, 3);
+                    break;
+
+                case EnemyType.Ovale2:
+                    nbMoneyDrop = Random.Range(5, 7);
+                    break;
+
+                case EnemyType.Losange3:
+                    nbMoneyDrop = Random.Range(15, 20);
+                    break;
+            }
+
+            for (int i = 0; i <= nbMoneyDrop; i++)
             {
                 Instantiate(money, transform.position, Quaternion.Euler(0, 0, 0));
             }
+
             FindObjectOfType<MovementEtTir>().score++;
             FindObjectOfType<MovementEtTir>().scoreText.text = "Score :" + FindObjectOfType<MovementEtTir>().score;
+
+            Destroy(gameObject);
         }
 
         if(timeStamp >= timeBetweenShot)
         {
+
             timeStamp = 0;
-            timeBetweenShot = Random.Range(1.0f, 10.0f);
+
+            switch (enemyType)
+            {
+                case EnemyType.Hexagone1:
+                    timeBetweenShot = Random.Range(5.0f, 10.0f);
+                    break;
+
+                case EnemyType.Ovale2:
+                    timeBetweenShot = Random.Range(3.0f, 5.0f);
+                    break;
+
+                case EnemyType.Losange3:
+                    timeBetweenShot = Random.Range(1.0f, 3.0f);
+                    break;
+            }
+
             Instantiate(bullet, transform.position, transform.rotation);
+
         }
         
 
