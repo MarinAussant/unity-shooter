@@ -115,7 +115,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -167,5 +167,5 @@ MonoBehaviour:
   bullet: {fileID: 5256173912473717726, guid: 8b3bd41787b31ad40903512e57da4411, type: 3}
   explosionParticles: {fileID: 2519717795258285019, guid: a7e6b1fc3788cd647ab5afd870d0d064, type: 3}
   timeBetweenShot: 0
-  life: 7
+  life: 5
   enemyType: 1

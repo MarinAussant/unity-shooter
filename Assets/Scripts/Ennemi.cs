@@ -29,7 +29,7 @@ public class Ennemi : MonoBehaviour
         switch (enemyType)
         {
             case EnemyType.Hexagone1:
-                timeBetweenShot = Random.Range(5.0f, 10.0f);
+                timeBetweenShot = Random.Range(100f, 100f);
                 break;
 
             case EnemyType.Ovale2 :
@@ -76,7 +76,7 @@ public class Ennemi : MonoBehaviour
             }
 
             FindObjectOfType<MovementEtTir>().score++;
-            FindObjectOfType<MovementEtTir>().scoreText.text = "Score :" + FindObjectOfType<MovementEtTir>().score;
+            FindObjectOfType<MovementEtTir>().scoreText.text = "Sc : " + FindObjectOfType<MovementEtTir>().score;
 
             Destroy(gameObject);
         }
@@ -89,7 +89,7 @@ public class Ennemi : MonoBehaviour
             switch (enemyType)
             {
                 case EnemyType.Hexagone1:
-                    timeBetweenShot = Random.Range(5.0f, 10.0f);
+                    timeBetweenShot = Random.Range(100f, 100f);
                     break;
 
                 case EnemyType.Ovale2:
@@ -104,7 +104,17 @@ public class Ennemi : MonoBehaviour
             Instantiate(bullet, transform.position, transform.rotation);
 
         }
-        
 
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<MovementEtTir>().life -= 20;
+            Instantiate(explosionParticles, transform.position, Quaternion.Euler(0, 0, 0));
+            Destroy(gameObject);
+        }
     }
 }

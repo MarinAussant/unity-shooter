@@ -9,17 +9,15 @@ public class groupEnnemi : MonoBehaviour
 
     public int nombreEnnemi;
     public float speed;
-    public Rigidbody2D monRb;
-    public float distance;
-
-    private Vector2 initPosition;
+    private Rigidbody2D monRb;
+    public Transform limitDown;
 
     // Start is called before the first frame update
     void Start()
     {
         nombreEnnemi = transform.childCount;
         monRb = GetComponent<Rigidbody2D>();
-        monRb.velocity = Vector3.down/2 ;
+        monRb.velocity = Vector3.down * speed;
 
     }
 
@@ -31,6 +29,10 @@ public class groupEnnemi : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if(transform.position.y < limitDown.position.y - 4)
+        {
+            Destroy(gameObject);
+        }
           
     }
 }

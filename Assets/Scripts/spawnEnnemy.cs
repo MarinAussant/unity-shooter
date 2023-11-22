@@ -10,7 +10,7 @@ public class spawnEnnemy : MonoBehaviour
     public GameObject[] normalEnemyPrefabs;
     public GameObject[] bossEnemyPrefabs;
 
-    private float timeToSpawn = 10.5f;
+    private float timeToSpawn = 11f;
     private float timeStamp = 0.0f;
     public int nbSpawnMob = 0; 
 
@@ -30,23 +30,24 @@ public class spawnEnnemy : MonoBehaviour
 
         if(timeStamp >= timeToSpawn)
         {
+            if (nbSpawnMob % 10 == 9)
+            {
+                if (timeToSpawn > 2)
+                {
+                    timeToSpawn -= 2;
+                }
+
+                Instantiate(bossEnemyPrefabs[Random.Range(0, bossEnemyPrefabs.Length)], new Vector2(Random.Range(transform.position.x - (spriteRenderer.bounds.size.x / 2), transform.position.x + (spriteRenderer.bounds.size.x / 2)), transform.position.y), Quaternion.Euler(0, 0, 0));
+               
+            }
+            else
+            {
+                Instantiate(normalEnemyPrefabs[Random.Range(0, normalEnemyPrefabs.Length)], new Vector2(Random.Range(transform.position.x - (spriteRenderer.bounds.size.x / 2), transform.position.x + (spriteRenderer.bounds.size.x / 2)), transform.position.y), Quaternion.Euler(0, 0, 0));
+            }
             timeStamp = 0.0f;
             nbSpawnMob++;
-
-            Instantiate(normalEnemyPrefabs[Random.Range(0, normalEnemyPrefabs.Length)], new Vector2(Random.Range(transform.position.x - (spriteRenderer.bounds.size.x / 2), transform.position.x + (spriteRenderer.bounds.size.x / 2)), transform.position.y), Quaternion.Euler(0, 0, 0));
-
         }
 
-        if(nbSpawnMob%10 == 9)
-        {
-            nbSpawnMob++;
-            if(timeToSpawn >= 2.5f)
-            {
-                timeToSpawn -= 2.5f;
-            }
-
-            Instantiate(bossEnemyPrefabs[Random.Range(0,bossEnemyPrefabs.Length)], new Vector2(Random.Range(transform.position.x - (spriteRenderer.bounds.size.x / 2), transform.position.x + (spriteRenderer.bounds.size.x / 2)), transform.position.y), Quaternion.Euler(0, 0, 0));
-
-        }
+        
     }
 }

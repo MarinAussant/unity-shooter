@@ -51,9 +51,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreEnnemi: 0
-  speed: 0
-  monRb: {fileID: 0}
-  distance: 0
+  speed: 1
+  limitDown: {fileID: 8177989291350748829, guid: 5a920016e6b338f48979a8cbb25bffac, type: 3}
 --- !u!50 &3853563991543415765
 Rigidbody2D:
   serializedVersion: 4

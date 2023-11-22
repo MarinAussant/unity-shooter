@@ -19,7 +19,7 @@ public class BulletEnnemi : MonoBehaviour
     void Update()
     {
 
-        if (transform.position.y < limitDOWN.position.y)
+        if (transform.position.y < limitDOWN.position.y - 4)
         {
             Destroy(gameObject);
         }
