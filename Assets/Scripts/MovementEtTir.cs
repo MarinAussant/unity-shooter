@@ -43,7 +43,7 @@ public class MovementEtTir : MonoBehaviour
     private int prixSpeedUpgrade = 10;
     private int prixShootSpeed = 10;
     private int prixPowerBullet = 100;
-    private int prixNbBullet = 1;
+    private int prixNbBullet = 100;
 
     private int niveauSpeedUpgrade = 1;
     private int niveauShootSpeed = 1;
