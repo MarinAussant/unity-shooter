@@ -53,6 +53,7 @@ public class Ennemi : MonoBehaviour
         {
 
             Instantiate(explosionParticles, transform.position, Quaternion.Euler(0, 0, 0));
+            Camera.main.GetComponent<CameraShake>().Shake(0.1f, 0.1f);
             transform.parent.GetComponent<groupEnnemi>().nombreEnnemi--;
 
             switch (enemyType)
@@ -113,6 +114,7 @@ public class Ennemi : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<MovementEtTir>().life -= 20;
+            Camera.main.GetComponent<CameraShake>().Shake(0.3f,0.15f);
             Instantiate(explosionParticles, transform.position, Quaternion.Euler(0, 0, 0));
             Destroy(gameObject);
         }

@@ -9,6 +9,7 @@ public class onClick : MonoBehaviour
 
     public void OnButtonClick()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(sceneToLoad);
     }
 }

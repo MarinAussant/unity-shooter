@@ -207,7 +207,7 @@ public class MovementEtTir : MonoBehaviour
         {
             money -= prixNbBullet;
             UpdateMoneyUI();
-            prixNbBullet += 1;
+            prixNbBullet += 100;
             niveauNbBullet += additionneurNbBullet;
             if (niveauNbBullet >= niveauMaxNbBullet)
             {
@@ -235,6 +235,8 @@ public class MovementEtTir : MonoBehaviour
         if(life <= 0)
         {
             bullet.GetComponent<Bullet>().power = 1;
+            PlayerPrefs.SetInt("score", score);
+            PlayerPrefs.Save();
             SceneManager.LoadScene("GameOver");
         }
 

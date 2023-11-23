@@ -30,6 +30,7 @@ public class BulletEnnemi : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<MovementEtTir>().life -= power;
+            Camera.main.GetComponent<CameraShake>().Shake(0.2f, 0.10f);
             Destroy(gameObject);
         }
     }
